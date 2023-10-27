@@ -1,0 +1,34 @@
+First, make sure you are comfortable with the following topics:
+(1) File IO
+(2) Struct
+(3) LinkedList data structure
+
+
+Ideally, you should be able to reuse many of the codes you wrote in assignment 1 (with minor modification). However, if you think the code is messy, then it might be good idea to rewrite the whole thing again.
+
+
+Some of the steps you can do:
+
+(01) Try to open the text file and do some error checking.
+(02) Read the first 2 integers and malloc the 2D map array correctly.
+(03) Read the remaining data in the text file to initialize the map array.
+(04) At this stage, you have the initial map. Please print it to the terminal and make sure it is correct. (File IO Completed)
+
+(05) Since you have learned about struct by now, you can use them to store some of the game states such as position of the Player and the car. It is up to you how you want to make use of the struct.
+(06) I would recommend implementing the car movement first before the undo feature, because the undo feature will also involve the car position.
+(07) First, focus on the current direction of the car. For example, let's say that the car char is '>' which means it is facing east right now.
+(08) The way the car moves is by moving "forward". If the car is facing east, then moving forward means going to the east direction.
+(09) You also need to check if there is a path '.' in front of the car. If YES, then move the car forward when the player moves. If NO, then you need to check the right side of the car OR the left side of the car. One of them should have the path '.'. (remember, we have assumption that the path will not be a dead end). In this example, since the car is facing east, then the left side is NORTH, and the right side of the car is SOUTH.
+(10) Once you find the path, then move the car there AND change its direction char. For example, if the car is going NORTH, then the new char is '^'. Keep in mind, this also changes the direction of "forward" of the car.
+(11) If you implement this correctly, then your car should follow the path smoothly. (Car Movement Completed)
+
+(12) Lastly, you need to implement the undo feature. There are many different approaches, but you need to use linkedlist for this assignment. If you want to get full mark for this part, you need to implement generic linked list.
+(13) The main idea is to keep track of position of the Player and the Car everytime you moves the Player. You can use linkedlist to store them in the right order.
+(14) One possible way is by using the insertStart() and removeStart() function.
+(15) You use insertStart() everytime the player moves. You can store a pointer to a struct that contains information of the previous position of the Player and the Car. (the details are up to you)
+(16) You use removeStart() everytime the key 'u' is pressed. You use the retrieved data to update the map array and reprint it. If the linkedlist is empty, then nothing happens.
+(17) Do comprehensive testing on this undo feature (Undo Feature Completed)
+
+(18) Lastly, do more testing on everything. Create different map text file and play around.
+
+NOTE: insertStart() and insertFirst() are basically the same linkedlist function with different name.
